@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
@@ -13,7 +10,7 @@ namespace Cleaner_Tool_For_Car_Radio
 {
     public partial class MyApplicationView : Form
     {
-        private LoadingDialogView ld;
+        private LoadingDialogView _ld;
 
         public MyApplicationView()
         {
@@ -72,33 +69,33 @@ namespace Cleaner_Tool_For_Car_Radio
                 if (String.IsNullOrWhiteSpace(this.labelChoixSource.Text) || String.IsNullOrWhiteSpace(this.labelChoixDestination.Text))
                     throw new Exception("Vous avez oublié de séléctionner la source ou la destination, merci d'effectuer cela et de réessayer.");
 
-                if (!System.IO.Directory.Exists(this.labelChoixSource.Text) || !System.IO.Directory.Exists(this.labelChoixDestination.Text))
+                if (!Directory.Exists(this.labelChoixSource.Text) || !Directory.Exists(this.labelChoixDestination.Text))
                     throw new Exception("Les répertoires séléctionnés n'existes pas, merci de corriger les chemins et de réessayer.");
 
                 this.backgroundWorker1.RunWorkerAsync();
 
-                this.ld = new LoadingDialogView(System.IO.Directory.GetFiles(this.labelChoixSource.Text).Length);
-                this.ld.ShowDialog();
+                this._ld = new LoadingDialogView(Directory.GetFiles(this.labelChoixSource.Text).Length);
+                this._ld.ShowDialog();
             }
             catch(Exception exc)
             {
-                ErrorManager.warning(exc.Message);
+                ErrorManager.Warning(exc.Message);
             }
         }
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
             Regex reg = new Regex(@"\W");
-            List<string> list_ext = new List<string>() { ".mp3", ".wma", ".m4a", ".ogg", ".flac" };
+            List<string> list_ext = new List<string> { ".mp3", ".wma", ".m4a", ".ogg", ".flac" };
 
-            foreach (string file in System.IO.Directory.GetFiles(this.labelChoixSource.Text))
+            foreach (string file in Directory.GetFiles(this.labelChoixSource.Text))
             {
-                if (list_ext.Contains(System.IO.Path.GetExtension(file).ToLower()))
+                if (list_ext.Contains(Path.GetExtension(file).ToLower()))
                 {
-                    string full_path_to = this.labelChoixDestination.Text + "\\" + reg.Replace(System.IO.Path.GetFileNameWithoutExtension(file), "-") + System.IO.Path.GetExtension(file).ToLower();
+                    string full_path_to = this.labelChoixDestination.Text + "\\" + reg.Replace(Path.GetFileNameWithoutExtension(file), "-") + Path.GetExtension(file).ToLower();
                     bool go = true;
 
-                    if (System.IO.File.Exists(full_path_to))
+                    if (File.Exists(full_path_to))
                     {
                         var dr = MessageBox.Show("Voulez-vous remplacer le fichier déjà présent dans le dossier de destination ?\n\nFichier : " + full_path_to, "Ce fichier existe déjà", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -107,7 +104,7 @@ namespace Cleaner_Tool_For_Car_Radio
                     }
 
                     if (go)
-                        System.IO.File.Copy(file, full_path_to, true);
+                        File.Copy(file, full_path_to, true);
 
                     TagLib.File tag_of = TagLib.File.Create(full_path_to);
 
@@ -138,7 +135,7 @@ namespace Cleaner_Tool_For_Car_Radio
 
                     Thread.Sleep(100);
 
-                    this.backgroundWorker1.ReportProgress(this.ld.GetPgb().Value * 100 / this.ld.GetPgb().Maximum);
+                    this.backgroundWorker1.ReportProgress(this._ld.GetPgb().Value * 100 / this._ld.GetPgb().Maximum);
                 }
             }
         }
@@ -146,18 +143,18 @@ namespace Cleaner_Tool_For_Car_Radio
         private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Error != null)
-                ErrorManager.warning(e.Error.Message);
+                ErrorManager.Warning(e.Error.Message);
             else
             {
-                this.ld.Close();
-                this.ld = null;
+                this._ld.Close();
+                this._ld = null;
             }
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            this.ld.GetPgb().PerformStep();
-            this.ld.SetLabelLoadingText("Elément " + this.ld.GetPgb().Value + " / " + this.ld.GetPgb().Maximum);
+            this._ld.GetPgb().PerformStep();
+            this._ld.SetLabelLoadingText("Elément " + this._ld.GetPgb().Value + " / " + this._ld.GetPgb().Maximum);
         }
     }
 }
