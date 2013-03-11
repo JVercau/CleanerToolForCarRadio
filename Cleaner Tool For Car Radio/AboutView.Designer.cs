@@ -123,8 +123,8 @@
             this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Cet outil permet de nettoyer un répertoire remplit de fichiers musicaux pour une " +
-    "meilleure lecture sur les autoradios.";
+            this.textBoxDescription.Text = "Cet outil permet de nettoyer un répertoire rempli de fichiers musicaux pour une m" +
+    "eilleure lecture sur les autoradios.";
             // 
             // okButton
             // 
@@ -137,7 +137,7 @@
             this.okButton.Text = "&OK";
             this.okButton.Click += new System.EventHandler(this.okButton_Click);
             // 
-            // About
+            // AboutView
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -147,7 +147,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "About";
+            this.Name = "AboutView";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
