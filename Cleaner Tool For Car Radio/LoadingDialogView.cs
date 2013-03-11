@@ -15,20 +15,20 @@ namespace Cleaner_Tool_For_Car_Radio
             this.labelLoadingText.Text = "Elément 0 / " + Max;
         }
 
-        /**
-         * Getter for "pgb" attribute.
-         * @return ProgressBar Return the ProgressBar object called "pgb".
-         */
+        /// </summary>
+        /// Getter for "pgb" attribute.
+        /// </summary>
+        /// <return>ProgressBar Return the ProgressBar object called "pgb".</return>
         public ProgressBar GetPgb()
         {
             return this.pgb;
         }
 
-        /**
-         * Setter for "labelLoadingText" attribute.
-         * @param string txt The text to set "labelLoadingText" attribute.
-         * @return LoadingDialog Return the current LoadingDialog object.
-         */
+        /// </summary>
+        /// Setter for "labelLoadingText" attribute.
+        /// </summary>
+        /// <param name="txt">string The text to set "labelLoadingText" attribute.</param>
+        /// <returns>LoadingDialog Return the current LoadingDialog object.</returns>
         public LoadingDialogView SetLabelLoadingText(string txt)
         {
             this.labelLoadingText.Text = txt;
