@@ -16,3 +16,6 @@ C:\Users\NaruT\Documents\Visual Studio 2012\Projects\Cleaner Tool For Car Radio\
 C:\Users\NaruT\Documents\Visual Studio 2012\Projects\Cleaner Tool For Car Radio\Cleaner Tool For Car Radio\obj\Release\Cleaner_Tool_For_Car_Radio.LoadingDialogView.resources
 C:\Users\NaruT\Documents\Visual Studio 2012\Projects\Cleaner Tool For Car Radio\Cleaner Tool For Car Radio\obj\Release\Cleaner_Tool_For_Car_Radio.MyApplicationView.resources
 C:\Users\NaruT\Documents\Visual Studio 2012\Projects\Cleaner Tool For Car Radio\Cleaner Tool For Car Radio\obj\Release\Cleaner_Tool_For_Car_Radio.MyApplicationView.fr-FR.resources
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\Cleaner Tool For Car Radio.exe.config
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner Tool For Car Radio.exe
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner Tool For Car Radio.pdb
