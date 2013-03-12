@@ -1,0 +1,7 @@
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Release\Cleaner Tool For Car Radio Business.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Release\Cleaner Tool For Car Radio Business.pdb
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Release\policy.2.0.taglib-sharp.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Release\taglib-sharp.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Release\policy.2.0.taglib-sharp.config
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\obj\Release\Cleaner Tool For Car Radio Business.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\obj\Release\Cleaner Tool For Car Radio Business.pdb

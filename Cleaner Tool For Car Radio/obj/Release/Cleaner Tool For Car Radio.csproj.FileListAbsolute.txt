@@ -22,9 +22,7 @@ C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radi
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\Cleaner Tool For Car Radio.exe
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\Cleaner Tool For Car Radio.pdb
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\fr-FR\Cleaner Tool For Car Radio.resources.dll
-C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\policy.2.0.taglib-sharp.dll
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\taglib-sharp.dll
-C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\policy.2.0.taglib-sharp.config
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner Tool For Car Radio.csprojResolveAssemblyReference.cache
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner_Tool_For_Car_Radio.AboutView.resources
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner_Tool_For_Car_Radio.HelpView.resources
@@ -34,3 +32,5 @@ C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radi
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner_Tool_For_Car_Radio.MyApplicationView.fr-FR.resources
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\Cleaner Tool For Car Radio.csproj.GenerateResource.Cache
 C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\obj\Release\fr-FR\Cleaner Tool For Car Radio.resources.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\Cleaner Tool For Car Radio Business.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio\bin\Release\Cleaner Tool For Car Radio Business.pdb

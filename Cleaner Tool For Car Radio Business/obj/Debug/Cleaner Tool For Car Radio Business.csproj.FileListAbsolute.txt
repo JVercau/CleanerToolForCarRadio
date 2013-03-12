@@ -1,0 +1,8 @@
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Debug\Cleaner Tool For Car Radio Business.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Debug\Cleaner Tool For Car Radio Business.pdb
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Debug\policy.2.0.taglib-sharp.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Debug\taglib-sharp.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\bin\Debug\policy.2.0.taglib-sharp.config
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\obj\Debug\Cleaner Tool For Car Radio Business.csprojResolveAssemblyReference.cache
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\obj\Debug\Cleaner Tool For Car Radio Business.dll
+C:\Users\NaruT\Documents\GitHub\CleanerToolForCarRadio\Cleaner Tool For Car Radio Business\obj\Debug\Cleaner Tool For Car Radio Business.pdb

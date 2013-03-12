@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Windows.Forms;
+using Cleaner_Tool_For_Car_Radio_Business;
 
 namespace Cleaner_Tool_For_Car_Radio
 {
@@ -67,14 +66,14 @@ namespace Cleaner_Tool_For_Car_Radio
             try
             {
                 if (String.IsNullOrWhiteSpace(this.labelChoixSource.Text) || String.IsNullOrWhiteSpace(this.labelChoixDestination.Text))
-                    throw new Exception("Vous avez oublié de séléctionner la source ou la destination, merci d'effectuer cela et de réessayer.");
+                    throw new ForgetSelectException("Vous avez oublié de séléctionner la source ou la destination, merci d'effectuer cela et de réessayer.");
 
                 if (!Directory.Exists(this.labelChoixSource.Text) || !Directory.Exists(this.labelChoixDestination.Text))
-                    throw new Exception("Les répertoires séléctionnés n'existes pas, merci de corriger les chemins et de réessayer.");
+                    throw new ForgetSelectException("Les répertoires séléctionnés n'existes pas, merci de corriger les chemins et de réessayer.");
 
                 this.backgroundWorker1.RunWorkerAsync();
 
-                this._ld = new LoadingDialogView(Directory.GetFiles(this.labelChoixSource.Text).Length);
+                this._ld = new LoadingDialogView(CTFCRBusiness.GetNbValidFileInto(this.labelChoixSource.Text));
                 this._ld.ShowDialog();
             }
             catch(Exception exc)
@@ -85,53 +84,25 @@ namespace Cleaner_Tool_For_Car_Radio
 
         private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
         {
-            Regex reg = new Regex(@"\W");
-            List<string> list_ext = new List<string> { ".mp3", ".wma", ".m4a", ".ogg", ".flac" };
-
-            foreach (string file in Directory.GetFiles(this.labelChoixSource.Text))
+            if (CTFCRBusiness.GetNbValidFileInto(this.labelChoixSource.Text) > 0)
             {
-                if (list_ext.Contains(Path.GetExtension(file).ToLower()))
+                foreach (string file in CTFCRBusiness.GetValidFileInto(this.labelChoixSource.Text))
                 {
-                    string full_path_to = this.labelChoixDestination.Text + "\\" + reg.Replace(Path.GetFileNameWithoutExtension(file), "-") + Path.GetExtension(file).ToLower();
-                    bool go = true;
+                    string full_path_to = CTFCRBusiness.GetFullPath(this.labelChoixDestination.Text, file);
+                    string error = "";
 
-                    if (File.Exists(full_path_to))
+                    CTFCRBusiness.Copy(file, full_path_to, out error);
+
+                    if (error == "FILE_ALREADY_EXIST")
                     {
-                        var dr = MessageBox.Show("Voulez-vous remplacer le fichier déjà présent dans le dossier de destination ?\n\nFichier : " + full_path_to, "Ce fichier existe déjà", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                        if (dr == DialogResult.No)
-                            go = false;
+                        if (ErrorManager.ReplaceDemand(full_path_to))
+                            CTFCRBusiness.Copy(file, full_path_to);
                     }
-
-                    if (go)
-                        File.Copy(file, full_path_to, true);
-
-                    TagLib.File tag_of = TagLib.File.Create(full_path_to);
 
                     if (this.checkBoxTypeOptimisation.Checked)
-                    {
-                        tag_of.Tag.Album = "";
-                        tag_of.Tag.AlbumArtists = new string[1];
-                        tag_of.Tag.Artists = new string[1];
-                        tag_of.Tag.Comment = "";
-                        tag_of.Tag.Composers = new string[1];
-                        tag_of.Tag.Conductor = "";
-                        tag_of.Tag.Copyright = "";
-                        tag_of.Tag.Title = "";
-                    }
+                        CTFCRBusiness.EraseTags(full_path_to);
                     else
-                    {
-                        tag_of.Tag.Album = String.IsNullOrWhiteSpace(tag_of.Tag.Album) ? "" : reg.Replace(tag_of.Tag.Album, "_");
-                        tag_of.Tag.AlbumArtists = new string[1];
-                        tag_of.Tag.Artists = new string[1];
-                        tag_of.Tag.Comment = String.IsNullOrWhiteSpace(tag_of.Tag.Comment) ? "" : reg.Replace(tag_of.Tag.Comment, "_");
-                        tag_of.Tag.Composers = new string[1];
-                        tag_of.Tag.Conductor = String.IsNullOrWhiteSpace(tag_of.Tag.Conductor) ? "" : reg.Replace(tag_of.Tag.Conductor, "_");
-                        tag_of.Tag.Copyright = String.IsNullOrWhiteSpace(tag_of.Tag.Copyright) ? "" : reg.Replace(tag_of.Tag.Copyright, "_");
-                        tag_of.Tag.Title = String.IsNullOrWhiteSpace(tag_of.Tag.Title) ? "" : reg.Replace(tag_of.Tag.Title, "_");
-                    }
-
-                    tag_of.Save();
+                        CTFCRBusiness.CleanTags(full_path_to);
 
                     Thread.Sleep(100);
 
