@@ -1,6 +1,9 @@
 CleanerToolForCarRadio
 ======================
 
+Configuration requise : Framework .NET 4.0
+Required configuration : .NET Framework 4.0
+
 Cet outil permet de nettoyer un répertoire rempli de fichiers musicaux pour une meilleure lecture sur les autoradios.
 This tool clean a directory of music files for better playback on car radios.
 
