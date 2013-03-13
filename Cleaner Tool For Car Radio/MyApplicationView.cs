@@ -91,7 +91,7 @@ namespace Cleaner_Tool_For_Car_Radio
                     string full_path_to = CTFCRBusiness.GetFullPath(this.labelChoixDestination.Text, file);
                     string error = "";
 
-                    CTFCRBusiness.Copy(file, full_path_to, out error);
+                    CTFCRBusiness.Copy(file, full_path_to, ref error);
 
                     if (error == "FILE_ALREADY_EXIST")
                     {
