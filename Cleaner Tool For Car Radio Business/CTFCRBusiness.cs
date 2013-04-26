@@ -123,7 +123,7 @@ namespace Cleaner_Tool_For_Car_Radio_Business
             /// </summary>
             /// <param name="path_file">string Source file.</param>
             /// <param name="full_path_to">string Destination file.</param>
-            /// <param name="error">out string Error parameter.</param>
+            /// <param name="error">ref string Error parameter.</param>
             public static void Copy(string path_file, string full_path_to, ref string error)
             {
                 if (File.Exists(full_path_to) && error == "")
